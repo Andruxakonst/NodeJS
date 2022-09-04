@@ -1,0 +1,32 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: juniordev
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+    volumes:
+      - /var/lib/mysql
+      - ./mysql/migrations:/docker-entrypoint-initdb.d
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  app:
+    depends_on:
+      - db
+    build: .
+    restart: always
+    ports:
+      - 5000:5000
+    expose:
+      - 5000
+    environment:
+      WAIT_HOSTS: db:3306

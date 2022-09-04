@@ -1,8 +1,8 @@
 const express = require('express'),
   app = express()
 
-const host = '127.0.0.1'
-const port = 7000
+//const host = 'localhost'
+const port = 5000
 const mainRouter = require("./routes/mainRouter.js");
 
 app.use(express.json())
@@ -14,8 +14,8 @@ app.use(function (req, res) {
   });
 const start = async ()=>{
     try{
-        app.listen(port, host, () =>
-            console.log(`Server listens http://${host}:${port}`)
+        app.listen(port, () =>
+            console.log(`Server listens port - ${port}`)
         )
     }catch(e){
         console.log(e);

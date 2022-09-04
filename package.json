@@ -4,7 +4,8 @@
   "description": "Тестовое задани для Junior разработчика",
   "main": "app.js",
   "scripts": {
-    "test": "mocha *.test.js"
+    "test": "mocha *.test.js",
+    "start": "node app.js"
   },
   "author": "Konstantinov A.V. (andruxakonst@yandex.ru)",
   "license": "ISC",
