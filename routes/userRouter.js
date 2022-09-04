@@ -3,7 +3,9 @@ const userRouter = express.Router();
 const User = require("../controllers/UserController");
 const Auth = require("../controllers/AuthController");
 
+//Обработка запроса login
 userRouter.post('/login', Auth.login);
-userRouter.post('/send',Auth.auth, User.send); //добавить User.send как next();
+//Обработка запроса send
+userRouter.post('/send',Auth.auth, User.send);
 
 module.exports = userRouter;

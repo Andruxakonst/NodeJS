@@ -1,6 +1,8 @@
 const DB = require("./DbController.js");
 const moment = require('moment');
 
+//hendler обработки запроса send
+//Проверяем что все поля на месте и в зависимости от того что в message отдаем историю сообщений из БД или сохраняем сообщение в БД
 exports.send = (req,res, next)=>{
     let user_id = req.body.user_id;
     if('name' in req.body && 'message' in req.body && req.body.name !="" && req.body.message !=""){

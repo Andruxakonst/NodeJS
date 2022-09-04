@@ -1,11 +1,11 @@
 const express = require('express'),
   app = express()
 
-//const host = 'localhost'
 const port = 5000
 const mainRouter = require("./routes/mainRouter.js");
 
 app.use(express.json())
+//основной роутер
 app.use('/', mainRouter)
 
 // обработка ошибки 404

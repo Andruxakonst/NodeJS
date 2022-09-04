@@ -3,6 +3,8 @@ const config = require('../config.json');
 const jwt = require('jsonwebtoken')
 const DB = require("./DbController.js");
 
+//hendler запроса login
+//Проверяет наличие пользователя в базе и при успехе выдает JWT токен
 exports.login = (req, res)=>{
     if('name' in req.body && 'password' in req.body && req.body.name !='' && req.body.password !=''){
         //проверить что логи и пароь валидны и выдать в ответ токен с id юзера
@@ -29,7 +31,7 @@ exports.login = (req, res)=>{
     }
 }
 
-//Проверяем JWT токен 
+//Проверяет JWT токен и при успехе передает управление следующему midleware через next()
 exports.auth = (req, res, next)=>{
     if('authorization' in req.headers && req.headers.authorization !=''){
         let token = config.tokenKey;
