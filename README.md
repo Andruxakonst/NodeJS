@@ -70,6 +70,11 @@ curl --location --request POST 'http://localhost:5000/user/send' \
 }'
 ```
 
+## Редактирование базы данных
+
+Для редактирования базы данных в контейнер добавлен образ редактора баз данных "adminer".
+Доступен по адресу http://localhost:8080/
+
 ## Контактный данные
 
 Задачу выполнил Константинов А.В.  ([Andruxakonst@yandex.ru](Andruxakonst@yandex.ru))
